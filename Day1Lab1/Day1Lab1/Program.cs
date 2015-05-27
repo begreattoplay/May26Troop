@@ -66,7 +66,10 @@ namespace Day1Lab1
             //    Console.WriteLine("Sorry, your entry was not a number!");
             //}
 
-
+            var name = "Nick";
+            var favoriteColor = "Blue";
+            var myString = string.Format("Hello {0}.  You're {1}", name, favoriteColor);
+            Console.WriteLine(myString);
             //if (File.Exists("HelloWorld.txt"))
             //{
             //    Console.WriteLine("I found it!");
