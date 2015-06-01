@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxRules", "TaxRules.csproj", "{7C3C8447-1056-4E21-8E8F-1AB0DE85852C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxRules.Tests", "..\TaxRules.Tests\TaxRules.Tests.csproj", "{EA349102-DAFB-4BB8-A2E1-5C569A89964A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C3C8447-1056-4E21-8E8F-1AB0DE85852C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C3C8447-1056-4E21-8E8F-1AB0DE85852C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C3C8447-1056-4E21-8E8F-1AB0DE85852C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C3C8447-1056-4E21-8E8F-1AB0DE85852C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA349102-DAFB-4BB8-A2E1-5C569A89964A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA349102-DAFB-4BB8-A2E1-5C569A89964A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA349102-DAFB-4BB8-A2E1-5C569A89964A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA349102-DAFB-4BB8-A2E1-5C569A89964A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
