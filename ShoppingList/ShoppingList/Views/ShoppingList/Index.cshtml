@@ -1,0 +1,19 @@
+﻿@model ShoppingList.Models.IndexViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach(var customer in Model.Customers)
+{
+    <p>Name: @customer.FirstName @customer.LastName</p>
+    foreach(var product in customer.Products)
+    {
+        <ul>
+            <li>Name: @product.Name, Price: @product.Price.ToString("C")</li>
+        </ul>
+    }
+    
+    <p>Total: @customer.Products.Sum(p => p.Price).ToString("C")</p>
+}
