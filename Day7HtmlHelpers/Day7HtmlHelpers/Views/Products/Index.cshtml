@@ -1,0 +1,29 @@
+﻿@using Day7HtmlHelpers.Helpers
+@model Day7HtmlHelpers.Models.Product
+@{
+    ViewBag.Title = "Here's my Product Chaos";
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+        alert("What up yo");
+    </script>
+}
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.DropDownListFor(m => m.SelectedStateCode, new SelectList(Model.States, "StateCode", "Name"))
+    </div>
+    
+    <p>This years, the company made @MyHelpers.FormatPrice(78778.76878m) in revenue</p>
+    <p>Last year, the company lost @MyHelpers.FormatPrice(-65775.45465m).</p>
+    
+    @Html.ShowPrice(m => m.Price)
+    
+    @Html.Image("http://laughingsquid.com/wp-content/uploads/space_needle_1.jpg")
+    
+    <input type="submit" value="Add Product" />
+}

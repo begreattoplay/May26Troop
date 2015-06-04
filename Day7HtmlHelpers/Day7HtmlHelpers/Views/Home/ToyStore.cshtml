@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Toy Store";
+    Layout = "~/Views/Shared/_ToyStoreLayout.cshtml";
+}
+
+@section Featured
+{
+    <ul>
+        <li>Bikes</li>
+        <li>Planes</li>
+        <li>Video Games</li>
+    </ul>
+}
+
+<h2>Welcome to my Toy Store</h2>
+
+@Html.Action("GetQuote", "Quote")
+
+@Html.Action("GetAd", "BannerAd")
+<div>
+    I have a lot of neat stuff woooooooo
+</div>
