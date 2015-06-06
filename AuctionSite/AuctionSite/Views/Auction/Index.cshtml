@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AuctionSite.Models.View.DisplayAuctionViewModel>
+@{
+    ViewBag.Title = "Auction List";
+}
+
+<h2>Auction List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MinimumBid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsOpen)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinimumBid)
+            </td>
+            <td>
+                @(item.IsOpen ? "Yes" : "No")
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.AuctionId }) |*@
+                @(item.IsOpen ? Html.ActionLink("Bid", "Bid", new { id = item.AuctionId }) : default(MvcHtmlString)) |
+                @Html.ActionLink("Details", "Details", new { id = item.AuctionId })
+            </td>
+        </tr>
+    }
+
+</table>
