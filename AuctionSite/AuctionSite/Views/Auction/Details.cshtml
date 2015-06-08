@@ -1,0 +1,66 @@
+﻿@model AuctionSite.Models.View.DisplayAuctionViewModel
+
+@{
+    ViewBag.Title = "Auction Details";
+}
+
+
+<div>
+    <h4>Auction Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinimumBid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinimumBid)
+        </dd>
+    </dl>
+
+    <h4>Bids</h4>
+    @if (Model.Bids.Count > 0)
+    {
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Bid Amount</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var bid in @Model.Bids)
+                {
+                    <tr>
+                        <td>@bid.Name</td>
+                        <td>@bid.BidAmount</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No bids yet</p>
+    }
+    
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
