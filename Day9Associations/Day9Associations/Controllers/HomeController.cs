@@ -4,17 +4,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
+using Day9Associations.Repositories;
 
 namespace Day9Associations.Controllers
 {
     public class HomeController : Controller
     {
+        private IRepository _repo;
+
+        //public HomeController() : this(new MockRepository())
+        //{
+
+        //}
+
+        public HomeController(IRepository repo)
+        {
+            _repo = repo;
+        }
+
         public ActionResult Index()
         {
-            MoviesDbContext db = new MoviesDbContext();
-            var movies = db.Movies.ToList();
+            IList<Movie> movies = null;
 
-            return View();
+            movies = _repo.ListMovies();
+
+            //using (MoviesDbContext db = new MoviesDbContext())
+            //{
+            //    movies = db.Movies.Include(c => c.Category).ToList();
+            //};
+
+            return View(movies);
         }
 
         public ActionResult About()
