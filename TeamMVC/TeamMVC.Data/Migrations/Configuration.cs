@@ -1,35 +1,31 @@
-namespace Day9Associations.Migrations
+namespace TeamMVC.Data.Migrations
 {
-    using Day9Associations.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using TeamMVC.Data.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Day9Associations.Models.MoviesDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<TeamMVC.Data.TeamDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Day9Associations.Models.MoviesDbContext context)
+        protected override void Seed(TeamMVC.Data.TeamDbContext context)
         {
+            Team team1 = new Team { City = "Houston", Name = "Astros" };
 
-            Category sciFi = new Category { Name = "SciFi" };
-            Category horror = new Category { Name = "Horror" };
-
-
-            context.Categories.AddOrUpdate(c => c.Name, sciFi, horror);
+            context.Teams.AddOrUpdate(t => new { t.Name, t.City }, team1);
             context.SaveChanges();
 
-            Movie starWars = new Movie 
-            { 
-                Title = "Star Wars", 
-                Director = "George Lucas",
-                CategoryId = sciFi.Id
-            };
-            context.Movies.AddOrUpdate(m => m.Title, starWars);
+            context.Players.AddOrUpdate(p => new { p.FirstName, p.LastName },
+                new Player { FirstName = "Jeff", LastName = "Bagwell", TeamId = team1.TeamId },
+                new Player { FirstName = "Bob", LastName = "Knepper", TeamId = team1.TeamId },
+                new Player { FirstName = "Craig", LastName = "Biggio", TeamId = team1.TeamId }
+            );
+
 
             //  This method will be called after migrating to the latest version.
 
