@@ -10,41 +10,16 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using Day12AuthIntro.Models;
-using SendGrid;
-using System.Net.Mail;
-using System.Net;
+using BundleAndMini.Models;
 
-namespace Day12AuthIntro
+namespace BundleAndMini
 {
     public class EmailService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-            return ConfigSendGridAsync(message);
-        }
-
-        private Task ConfigSendGridAsync(IdentityMessage message)
-        {
-            SendGridMessage myMessage = new SendGridMessage();
-            myMessage.AddTo(message.Destination);
-            myMessage.From = new MailAddress("nick@codercamps.com", "Nick Brittain");
-            myMessage.Subject = message.Subject;
-            myMessage.Html = message.Body;
-            myMessage.Text = message.Body;
-
-            NetworkCredential credentials = new NetworkCredential("begreattoplay", "PeanutButter");
-            Web transportWeb = new Web(credentials);
-
-            if (transportWeb != null)
-            {
-                return transportWeb.DeliverAsync(myMessage);
-            }
-            else
-            {
-                return Task.FromResult(0);
-            }
+            return Task.FromResult(0);
         }
     }
 

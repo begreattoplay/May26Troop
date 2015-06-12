@@ -1,11 +1,10 @@
-﻿using Day12AuthIntro.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Day12AuthIntro.Controllers
+namespace BundleAndMini.Controllers
 {
     public class HomeController : Controller
     {
@@ -14,7 +13,6 @@ namespace Day12AuthIntro.Controllers
             return View();
         }
 
-        [Authorize]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -22,11 +20,16 @@ namespace Day12AuthIntro.Controllers
             return View();
         }
 
-        [Authorize(Roles=Role.ADMIN)]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        [OutputCache(Duration=15)]
+        public ActionResult TestCache()
+        {
             return View();
         }
     }
