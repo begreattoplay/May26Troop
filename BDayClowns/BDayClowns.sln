@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDayClowns.Presentation.Web", "BDayClowns.Presentation.Web\BDayClowns.Presentation.Web.csproj", "{27358C01-9FD6-439C-90D3-42F5C5183C11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{CEE2F83A-2A35-4CA8-A0C9-D817AB578ECA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{F6D3DBAD-1E73-46D6-8C22-F1E4A137F226}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{2ADA1F86-61D7-4FC7-80B9-58E84EB4DFE6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C93F0DED-0D8D-482C-A89E-61CFE18AF6AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDayClowns.Domain", "BDayClowns.Domain\BDayClowns.Domain.csproj", "{AD8FFE26-6EE2-4ED9-BA06-B3055CB21EAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDayClowns.Infrastructure.Persistence", "BDayClowns.Infrastructure.Persistence\BDayClowns.Infrastructure.Persistence.csproj", "{6E6ED176-92E3-4C4B-A601-82D736B0DD3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDayClowns.Services", "BDayClowns.Services\BDayClowns.Services.csproj", "{336228DC-26EE-42BA-80D3-D1AFB9FE94B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27358C01-9FD6-439C-90D3-42F5C5183C11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27358C01-9FD6-439C-90D3-42F5C5183C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27358C01-9FD6-439C-90D3-42F5C5183C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27358C01-9FD6-439C-90D3-42F5C5183C11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD8FFE26-6EE2-4ED9-BA06-B3055CB21EAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD8FFE26-6EE2-4ED9-BA06-B3055CB21EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD8FFE26-6EE2-4ED9-BA06-B3055CB21EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD8FFE26-6EE2-4ED9-BA06-B3055CB21EAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E6ED176-92E3-4C4B-A601-82D736B0DD3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E6ED176-92E3-4C4B-A601-82D736B0DD3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E6ED176-92E3-4C4B-A601-82D736B0DD3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E6ED176-92E3-4C4B-A601-82D736B0DD3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{336228DC-26EE-42BA-80D3-D1AFB9FE94B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{336228DC-26EE-42BA-80D3-D1AFB9FE94B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{336228DC-26EE-42BA-80D3-D1AFB9FE94B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{336228DC-26EE-42BA-80D3-D1AFB9FE94B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{27358C01-9FD6-439C-90D3-42F5C5183C11} = {CEE2F83A-2A35-4CA8-A0C9-D817AB578ECA}
+		{AD8FFE26-6EE2-4ED9-BA06-B3055CB21EAF} = {F6D3DBAD-1E73-46D6-8C22-F1E4A137F226}
+		{6E6ED176-92E3-4C4B-A601-82D736B0DD3D} = {2ADA1F86-61D7-4FC7-80B9-58E84EB4DFE6}
+		{336228DC-26EE-42BA-80D3-D1AFB9FE94B4} = {C93F0DED-0D8D-482C-A89E-61CFE18AF6AA}
+	EndGlobalSection
+EndGlobal
