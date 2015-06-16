@@ -49,16 +49,17 @@ namespace Day4Lab2
         static void Main(string[] args)
         {
             List<Product> products = CreateProducts(1000);
-            Product dup = FindDuplicateProduct(products);
-            
-            while(dup != null)
-            {
-                products.Remove(dup);
-                dup = FindDuplicateProduct(products);
-            }
+            //Product dup = FindDuplicateProduct(products);
+            var newProducts = products.GroupBy(p => p.Id).Select(g => g.FirstOrDefault()).ToList();
 
-            SortProducts(products);
-            foreach(Product product in products)
+            //while(dup != null)
+            //{
+            //    products.Remove(dup);
+            //    dup = FindDuplicateProduct(products);
+            //}
+
+            SortProducts(newProducts);
+            foreach (Product product in newProducts)
             {
                 Console.WriteLine(product.Id + " is unique.");
             }
