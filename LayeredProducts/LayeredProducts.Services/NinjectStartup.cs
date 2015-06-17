@@ -14,6 +14,7 @@ namespace LayeredProducts.Services
         public override void Load()
         {
             Bind<IGenericRepository>().To<GenericRepository>();
+            //AutoMapperStartup.RegisterMaps();
         }
     }
 }
