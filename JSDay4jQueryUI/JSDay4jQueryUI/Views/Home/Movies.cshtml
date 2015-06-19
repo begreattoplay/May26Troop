@@ -1,0 +1,28 @@
+﻿@model IEnumerable<JSDay4jQueryUI.Models.Movie>
+@{
+    ViewBag.Title = "Movies";
+}
+
+<ul id="movieList" style="list-style-type: none;">
+    @foreach(var movie in Model)
+    {
+        <li id="@movie.Id" style="cursor: pointer;">@movie.Title</li>
+    }
+</ul>
+
+@section scripts
+{
+    <script>
+        $('#movieList').sortable({
+            update: function (e, ul) {
+                var order = $(this).sortable('toArray');
+                $.ajax({
+                    data: JSON.stringify(order),
+                    type: 'POST',
+                    url: '/Home/SaveOrder',
+                    contentType: 'application/json'
+                });
+            }
+        }).disableSelection();
+    </script>
+}

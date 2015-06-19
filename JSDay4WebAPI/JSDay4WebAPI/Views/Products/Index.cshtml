@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<form id="frm">
+    <div>
+        <label>Product Name: <input id="name" /></label>
+    </div>
+    <div>
+        <label>Product Price: <input id="price" /></label>
+    </div>
+    <input type="submit" value="Add Product" />
+</form>
+
+
+<ul id="productList"></ul>
+
+@section scripts
+{
+    <script>
+        var frm = document.getElementById('frm');
+        var productName = document.getElementById('name');
+        var productPrice = document.getElementById('price');
+
+        //handle form submit
+        frm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            //create payload
+            var product = {
+                Name: productName.value,
+                Price: productPrice.value
+            }
+
+            //perform Ajax call
+            $.ajax('/api/products', {
+                type: 'POST',
+                data: JSON.stringify(product),
+                contentType: 'application/json',
+                dataType: 'json'
+            }).done(function () {
+                e.target.reset();
+                fetchProducts();
+            }).fail(function (xhr) {
+                alert('Could not add product');
+            });
+        });
+
+        function fetchProducts() {
+            $.getJSON('/api/products').done(function (data) {
+                productList.innerHTML = ''; //clear previous
+                data.forEach(function (product) {
+                    productList.innerHTML += '<li>' + product.Name + '</li>';
+                });
+            });
+        }
+
+        //fetch products when view first loads
+        fetchProducts();
+    </script>
+}
