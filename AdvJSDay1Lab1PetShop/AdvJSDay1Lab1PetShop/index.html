@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="PetShopApp">
+<head>
+    <title></title>
+</head>
+<body ng-controller="PetsController as vm">
+    <div ng-repeat="category in vm.petsByCat" style="float: left; margin-right:80px;">
+        <h2>{{category.name}}</h2>
+        <div ng-repeat="pet in category.animals" style="float: right;">
+            <p>{{pet.name}}</p>
+            <img ng-src="{{pet.url}}" width="200" height="200" />
+        </div>
+    </div>
+
+    <script src="Scripts/angular.min.js"></script>
+    <script src="app/app.js"></script>
+</body>
+</html>

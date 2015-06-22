@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="MyApp">
+<head>
+    <title> Corresponadence</title>
+</head>
+
+<body>
+    <div>
+        <label>
+            Customer Name:
+            <input ng-model="message.customerName"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            Customer Insult:
+            <input ng-model="message.customerInsult" />
+        </label>
+    </div>
+    <p>
+        Dear {{message.customerName}},
+        <br/>
+        I <i> sincerely </i><b> apologize</b> for my last communication when I called you a {{message.customerInsult}}. Clearly, you are not a <i>{{message.customerInsult}}</i>.My aplogies.
+        <br/>
+        -- Customer Service
+    </p>
+
+
+    <script src="Scripts/angular.min.js"></script>
+    <script src="app/app.js"></script>
+</body>
+</html>
