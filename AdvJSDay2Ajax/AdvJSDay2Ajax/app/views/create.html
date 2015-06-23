@@ -1,0 +1,14 @@
+﻿<form name="foodForm" novalidate ng-submit="vm.add()">
+    <div>
+        <label>
+            Food Name:
+            <input name="name" ng-model="vm.name" type="text" ng-required="true" />
+            <span ng-show="foodForm.name.$touched && foodForm.name.$error.required" class="error">
+                Food name is required.
+            </span>
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="Add" ng-disabled="foodForm.$invalid" />
+    </div>
+</form>
