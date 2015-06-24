@@ -28,6 +28,7 @@ namespace NickCafe
                       "~/Scripts/angular.js",
                       "~/Scripts/angular-route.js",
                       "~/App/app.js",
+                      "~/App/Services/services.js",
                       "~/App/Controllers/controllers.js"));
         }
     }

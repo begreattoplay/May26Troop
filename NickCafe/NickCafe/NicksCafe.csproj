@@ -215,6 +215,7 @@
   <ItemGroup>
     <Content Include="App\app.js" />
     <Content Include="App\Controllers\controllers.js" />
+    <Content Include="App\Services\services.js" />
     <Content Include="App\Views\add.html" />
     <Content Include="App\Views\menu.html" />
     <Content Include="App\Views\welcome.html" />

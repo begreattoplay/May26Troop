@@ -9,18 +9,29 @@
         vm.message = 'Welcome Page';
     }
 
-    function Menu() {
+    function Menu(menuService) {
         var vm = this;
 
         vm.message = 'Menu Page';
-
-
+        vm.menuItems = menuService.getProducts();
     }
 
-    function Add() {
+    function Add(menuService, $location) {
         var vm = this;
 
-        vm.message = 'Add Page';
+        vm.addItem = function () {
+
+            var product = {
+                name: vm.name,
+                productPrice: vm.price,
+                productDescription: vm.description,
+                isBreakfast: vm.isBreakfast ? vm.isBreakfast : false
+            };
+
+            menuService.addProduct(product);
+
+            $location.path('/menu');
+        };
     }
 
 
