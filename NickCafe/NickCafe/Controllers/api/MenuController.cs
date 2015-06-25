@@ -27,7 +27,7 @@ namespace NickCafe.Controllers.api
 
 
         }
-        public bool Post(Product product )
+        public bool Post(Product product)
         {
             _products.Add(product);
             

@@ -13,14 +13,18 @@
         var vm = this;
 
         vm.message = 'Menu Page';
-        vm.menuItems = menuService.getProducts();
+
+        menuService.getProducts().then(function (products) {
+            vm.menuItems = products;
+        }, function () {
+
+        });
     }
 
     function Add(menuService, $location) {
         var vm = this;
 
         vm.addItem = function () {
-
             var product = {
                 name: vm.name,
                 productPrice: vm.price,
@@ -28,10 +32,16 @@
                 isBreakfast: vm.isBreakfast ? vm.isBreakfast : false
             };
 
-            menuService.addProduct(product);
-
-            $location.path('/menu');
+            menuService.addProduct(product).then(redirectToMenu, displayError);
         };
+
+        function redirectToMenu() {
+            $location.path('/menu');
+        }
+
+        function displayError() {
+
+        }
     }
 
 
