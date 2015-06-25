@@ -1,6 +1,7 @@
 ﻿(function () {
     angular.module('CafeApp').controller('WelcomeController', Welcome)
-    .controller('MenuController', Menu).controller('AddController', Add);
+    .controller('MenuController', ['menuService', Menu]).controller('AddController', Add)
+    .controller('LoginController', Login);
 
     function Welcome()
     {
@@ -24,7 +25,12 @@
     function Add(menuService, $location) {
         var vm = this;
 
+        vm.isLoading = false;
+
         vm.addItem = function () {
+
+            vm.isLoading = true;
+
             var product = {
                 name: vm.name,
                 productPrice: vm.price,
@@ -33,18 +39,32 @@
             };
 
             menuService.addProduct(product).then(redirectToMenu, displayError);
+            
         };
 
         function redirectToMenu() {
+            vm.isLoading = false;
             $location.path('/menu');
         }
 
         function displayError() {
-
+            vm.isLoading = false;
         }
     }
 
+    function Login(loginService, $location) {
+        var vm = this;
 
+        vm.login = function () {
+            loginService.login(vm.username, vm.password).then(loginSuccess, loginFail);
+        }
 
+        function loginSuccess() {
+            $location.path('/menu');
+        }
 
+        function loginFail() {
+
+        }
+    }
 })();

@@ -1,9 +1,12 @@
 ﻿(function () {
-    angular.module('CafeApp').factory('menuService', menuService);
+    angular.module('CafeApp')
+    .factory('menuService', menuService)
+    .factory('loginService', loginService);
 
-    function menuService($http, $q) {
+    function menuService($http, $q, $window) {
         var products = [];
         var initialDeferred = $q.defer();
+        var token = $window.sessionStorage.getItem('token');
         var service = {};
 
         preloadProducts();
@@ -12,19 +15,23 @@
         service.addProduct = addProduct;
 
         function preloadProducts() {
-            $http.get('/api/menu')
-                .success(function (data) {
-                    console.log(data);
+            $http({
+                url: '/api/menu',
+                method: 'GET',
+                headers: { 'Authorization' : 'Bearer ' + token }
+            })
+            .success(function (data) {
+                console.log(data);
 
-                    data.forEach(function (product) {
-                        products.push(product);
-                    })
-
-                    initialDeferred.resolve(products);
+                data.forEach(function (product) {
+                    products.push(product);
                 })
-                .error(function () {
-                    initialDeferred.reject();
-                });
+
+                initialDeferred.resolve(products);
+            })
+            .error(function () {
+                initialDeferred.reject();
+            });
         }
 
         function getProducts() {
@@ -33,20 +40,51 @@
 
         function addProduct(product) {
             var deferred = $q.defer();
-            $http.post('/api/menu', product)
-                .success(function (data) {
-                    if (data) {
-                        products.push(product);
-                    }
+            $http({
+                url: '/api/menu',
+                method: 'POST',
+                data: product,
+                headers: { 'Authorization': 'Bearer ' + token }
+            })
+            .success(function (data) {
+                if (data) {
+                    products.push(product);
+                }
 
-                    deferred.resolve();
-                })
-                .error(function () {
-                    deferred.reject();
-                });
+                deferred.resolve();
+            })
+            .error(function () {
+                deferred.reject();
+            });
 
             return deferred.promise;
         };
+
+        return service;
+    }
+
+    function loginService($http, $q, $window) {
+        var service = {};
+
+        service.login = login;
+
+        function login(username, password) {
+            var deferred = $q.defer();
+
+            $http({
+                url: '/Token',
+                method: 'POST',
+                data: 'username=' + username + '&password=' + password + '&grant_type=password',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            }).success(function (data) {
+                $window.sessionStorage.setItem('token', data.access_token);
+                deferred.resolve();
+            }).error(function () {
+                deferred.reject();
+            });
+
+            return deferred.promise;
+        }
 
         return service;
     }
